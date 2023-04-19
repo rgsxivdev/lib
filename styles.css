@@ -23,13 +23,19 @@ body {
 .card-container{
   display: flex;
   justify-content: center;
-  border: 1px solid black;
   margin-top: 20px;
   height: 250px;
   width: 200px;
 }
 
 .card {
+display: flex;
+justify-content: space-around;
+align-items: center;
+flex-direction: column;
+width: 250px;
+border: 2px solid #c2f970;
+border-radius: 20px;
 position: relative;
 }
 
@@ -39,8 +45,20 @@ position: relative;
 }
 
 .has-read-btn{
-  position: absolute;
   bottom: 0;
+  width: 150px;
+  border: none;
+}
+
+.has-read-btn:focus{
+transform: translateY(4px)
+}
+
+.book-read{
+background-color: #c2f970;
+}
+.book-not-read{
+  background-color: #da2c38;
 }
 
 .add-book-modal{
