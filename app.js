@@ -16,7 +16,8 @@ const MYLIBRARY = {
   MYLIBRARY.books.push(BOOK);
   },
   displayBook(){
-    for (let i = this.books.length - 1; i < this.books.length; i++){
+    
+    const i = this.books.length - 1;
       const CARD = document.createElement('div') 
       CARD.classList.add('card')
       CARD.setAttribute('id', `c${i}`)
@@ -43,7 +44,6 @@ const MYLIBRARY = {
       CLOSE.innerText = 'X'
       CLOSE.classList.add('close');
       CARD.appendChild(CLOSE);
-    }
   },
 }
 
