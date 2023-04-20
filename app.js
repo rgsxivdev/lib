@@ -1,11 +1,3 @@
-const myLibrary = {
-  books: [],
-  addBook(title, author, pageCount){
-  const book = new Book(title, author, pageCount);
-  myLibrary.books.push(book);
-  }
-}
-
 class Book{
   constructor(title, author, pageCount, hasRead){
     this.title = title;
@@ -15,19 +7,49 @@ class Book{
   }
 }
 
-const modal = {
+const MYLIBRARY = {
+  books: [],
+  libraryContainer: document.querySelector('.card-container'),
+  addBook(title, author, pageCount){
+  const BOOK = new Book(title, author, pageCount);
+  MYLIBRARY.books.push(BOOK);
+  },
+  displayBook(){
+    for (let i = 0; i < this.books.length; i++){
+      const CARD = document.createElement('div') 
+      CARD.classList.add('card')
+      this.libraryContainer.appendChild(CARD)
+      const TITLE = document.createElement('div')
+      TITLE.classList.add('title')
+      TITLE.textContent = this.books[i].title
+      CARD.appendChild(TITLE)
+      const AUTHOR = document.createElement('div')
+      AUTHOR.classList.add('author')
+      AUTHOR.textContent = this.books[i].author
+      CARD.appendChild(AUTHOR)
+      const PAGECOUNT = document.createElement('div')
+      PAGECOUNT.classList.add('page-count')
+      PAGECOUNT.textContent = this.books[i].pageCount
+      CARD.appendChild(PAGECOUNT)
+    }
+  },
+}
+
+const MODAL = {
   openBookButton: document.querySelector('.open-modal').addEventListener('click', ()=>{
-  modal.addBookForm.classList.toggle('hidden');
+  MODAL.addBookForm.classList.toggle('hidden');
   }),
   addBookForm: document.querySelector('.add-book-modal'),
   bookTitleInput:document.querySelector('#book-title'),
   bookAuthorInput:  document.querySelector('#book-author'),
   pageCountInput: document.querySelector('#page-count'),
-  addBookBtn: document.querySelector('.add-book-btn').addEventListener('click', (e)=>{
+  addBookBtn: document.querySelector('.add-book-btn').
+  addEventListener('click', (e)=>{
     e.preventDefault();
-    myLibrary.addBook(modal.bookTitleInput.value, modal.bookAuthorInput.value, modal.pageCountInput.value);
-    modal.clear();
-    modal.addBookForm.classList.toggle('hidden');
+    MYLIBRARY.addBook(MODAL.bookTitleInput.value, MODAL.bookAuthorInput.value, MODAL.pageCountInput.value);
+    MYLIBRARY.displayBook();
+    MODAL.clear();
+    MODAL.addBookForm.classList.toggle('hidden');
   }),
 
   clear(){
@@ -36,4 +58,3 @@ const modal = {
     this.pageCountInput.value = '';
   }
 }
-

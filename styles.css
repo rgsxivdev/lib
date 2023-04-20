@@ -26,6 +26,7 @@ body {
   display: flex;
   justify-content: center;
   margin-top: 20px;
+  height: 300px;
 }
 
 .card {
@@ -98,4 +99,24 @@ background-color: #c2f970;
   border: none;
   font-size: 1.5em;
   text-align: top;
+}
+
+.close-button {
+  border: none;
+  display: inline-block;
+  padding: 8px 16px;
+  vertical-align: middle;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  background-color: inherit;
+  text-align: center;
+  cursor: pointer;
+  white-space: nowrap
+}
+
+.topright {
+  position: absolute;
+  right: 0;
+  top: 0
 }
