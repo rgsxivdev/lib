@@ -1,3 +1,4 @@
+/* eslint-disable no-plusplus */
 class Book{
   constructor(title, author, pageCount, hasRead){
     this.title = title;
@@ -15,9 +16,11 @@ const MYLIBRARY = {
   MYLIBRARY.books.push(BOOK);
   },
   displayBook(){
-    for (let i = 0; i < this.books.length; i++){
+    for (let i = this.books.length - 1; i < this.books.length; i++){
       const CARD = document.createElement('div') 
       CARD.classList.add('card')
+      CARD.setAttribute('id', `c${i}`)
+       CARD.setAttribute('data-idx', i)
       this.libraryContainer.appendChild(CARD)
       const TITLE = document.createElement('div')
       TITLE.classList.add('title')
@@ -31,6 +34,15 @@ const MYLIBRARY = {
       PAGECOUNT.classList.add('page-count')
       PAGECOUNT.textContent = this.books[i].pageCount
       CARD.appendChild(PAGECOUNT)
+      const CLOSE = document.createElement('div')
+      CLOSE.addEventListener('click', ()=>{
+        const EL = document.querySelector(`#c${i}`);
+        EL.remove();
+        this.books[CARD.getAttribute('data-idx')] = null;
+      });
+      CLOSE.innerText = 'X'
+      CLOSE.classList.add('close');
+      CARD.appendChild(CLOSE);
     }
   },
 }
