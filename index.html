@@ -1,34 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
-  <title>Document</title>
-</head>
-<body>
-  <nav class="nav"><div class="title">Library Project</div></nav>
-  <div class="card-container">
-  </div>
-  <div class="hidden add-book-modal">
-    <form class=" book-form" action="#">
-      <label for="book-title">Book Title</label>
-      <input type="text" id="book-title" name="book-title">
-      <label for="book-author">Book Author</label>
-      <input type="text" id="book-author" name="book-author">
-      <label for="page-count">Page Count</label>
-      <input type="text" id="page-count" name="page-count">
-      <button class="add-book-btn">Add Book</button>
-    </form>
-  </div>
-  <button class="open-modal">+</button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <nav class="nav"><div class="title">Library Project</div></nav>
+    <div class="card-container">
+      <div class="card">
+        <div class="title">Book</div>
+        <div class="author">Author</div>
+        <div class="page-count">400 Pages</div>
+        <div class="close">X</div>
+      </div>
+    </div>
+    <div class="hidden add-book-modal">
+      <form class="book-form" action="#">
+        <label for="book-title">Book Title</label>
+        <input type="text" id="book-title" name="book-title" />
+        <label for="book-author">Book Author</label>
+        <input type="text" id="book-author" name="book-author" />
+        <label for="page-count">Page Count</label>
+        <input type="text" id="page-count" name="page-count" />
+        <button class="add-book-btn">Add Book</button>
+      </form>
+    </div>
+    <button class="open-modal">+</button>
 
-
-  <script src="app.js"></script>
-</body>
+    <script src="app.js"></script>
+  </body>
 </html>
-
-  <!-- <header style="background-color:#000;color:#fff;">
-  <span onclick="document.getElementById('YourModalBox').style.display='none'" class="close-button topright">&times;</span>
-</header> -->

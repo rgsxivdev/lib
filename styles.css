@@ -1,4 +1,4 @@
-*{
+* {
   margin: 0;
   padding: 0;
 }
@@ -11,7 +11,6 @@ body {
   flex-direction: column;
   align-items: center;
   height: 100vh;
-
 }
 
 .nav {
@@ -22,7 +21,7 @@ body {
   text-align: center;
   font-size: 2.5em;
 }
-.card-container{
+.card-container {
   display: flex;
   justify-content: center;
   margin-top: 20px;
@@ -30,41 +29,62 @@ body {
 }
 
 .card {
-display: flex;
-justify-content: space-around;
-align-items: center;
-flex-direction: column;
-width: 200px;
-height: 300px;
-border: 2px solid #c2f970;
-border-radius: 20px;
-position: relative;
-margin-right: 20px;
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  width: 200px;
+  height: 300px;
+  border: 2px solid #c2f970;
+  border-radius: 20px;
+  position: relative;
+  margin-right: 20px;
 }
 
-.title, .author, .page-count, .has-read-btn{
+.close {
+  cursor: pointer;
+  border: 1px solid;
+  background-color: #000;
+  padding: 2px;
+  font-size: 10px;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+.close:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.title,
+.author,
+.page-count,
+.has-read-btn {
   margin-bottom: 10px;
   padding: 10px;
 }
 
-.has-read-btn{
+.has-read-btn {
   bottom: 0;
   width: 150px;
   border: none;
 }
 
-.has-read-btn:focus{
-transform: translateY(4px)
+.has-read-btn:focus {
+  transform: translateY(4px);
 }
 
-.book-read{
-background-color: #c2f970;
+.book-read {
+  background-color: #c2f970;
 }
-.book-not-read{
+.book-not-read {
   background-color: #da2c38;
 }
 
-.add-book-modal{
+.add-book-modal {
   position: absolute;
   top: 20%;
   right: 40%;
@@ -81,15 +101,17 @@ background-color: #c2f970;
   flex-direction: column;
   padding: 20px;
 }
-#book-title, #book-author, #page-count{
+#book-title,
+#book-author,
+#page-count {
   margin-bottom: 10px;
 }
 
-.hidden{
+.hidden {
   display: none;
 }
 
-.open-modal{
+.open-modal {
   position: absolute;
   bottom: 40px;
   right: 40px;
@@ -112,11 +134,11 @@ background-color: #c2f970;
   background-color: inherit;
   text-align: center;
   cursor: pointer;
-  white-space: nowrap
+  white-space: nowrap;
 }
 
 .topright {
   position: absolute;
   right: 0;
-  top: 0
+  top: 0;
 }
