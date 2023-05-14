@@ -8,6 +8,7 @@ class Book{
   }
 }
 
+
 const MYLIBRARY = {
   books: [],
   libraryContainer: document.querySelector('.card-container'),
@@ -15,67 +16,64 @@ const MYLIBRARY = {
   const BOOK = new Book(title, author, pageCount);
   MYLIBRARY.books.push(BOOK);
   },
-  // displayBook(){
-    
-  //   // const i = this.books.length - 1;
-  //     const TITLE = document.createElement('div')
-  //     TITLE.classList.add('title')
-  //     TITLE.textContent = this.books[i].title
-  //     CARD.appendChild(TITLE)
-  //     const AUTHOR = document.createElement('div')
-  //     AUTHOR.classList.add('author')
-  //     AUTHOR.textContent = this.books[i].author
-  //     CARD.appendChild(AUTHOR)
-  //     const PAGECOUNT = document.createElement('div')
-  //     PAGECOUNT.classList.add('page-count')
-  //     PAGECOUNT.textContent = this.books[i].pageCount
-  //     CARD.appendChild(PAGECOUNT)
-  //     const CLOSE = document.createElement('div')
-  //     CLOSE.addEventListener('click', ()=>{
-  //       const EL = document.querySelector(`#c${i}`);
-  //       EL.remove();
-  //       this.books[CARD.getAttribute('data-idx')] = null;
-  //     });
-  //     CLOSE.innerText = 'X'
-  //     CLOSE.classList.add('close');
-  //     CARD.appendChild(CLOSE);
-  // },
   renderBooks(){
-    MYLIBRARY.libraryContainer.innerHTML = '';
+    this.libraryContainer.innerHTML = '';
     this.books.forEach((book, index)=>{
-      const card = document.createElement('div');
-      card.classList.add('card');
-      card.setAttribute('data-idx', index);
-      this.libraryContainer.appendChild(card);
       
-      const title = document.createElement('div');
-      title.classList.add('title');
-      title.textContent = book.title;
-      card.appendChild(title);
+    const card = document.createElement('div');
+    card.classList.add('card');
+    card.setAttribute('data-idx', index);
+    const idx = Number(card.getAttribute('data-idx'));
+    this.libraryContainer.appendChild(card);
+      
+    const titleHdr = document.createElement('div');
+    titleHdr.classList.add('title-hdr');
+    titleHdr.textContent = 'Book  Title'
+    card.appendChild(titleHdr);
 
-     const author = document.createElement('div'); 
-     author.classList.add('author');
-     author.textContent = book.author;
-     card.appendChild(author);
+    const title = document.createElement('div');
+    title.classList.add('title');
+    title.textContent = book.title;
+    card.appendChild(title);
 
-     const pageCount = document.createElement('div');
-     pageCount.classList.add('pageCount');
-     pageCount.textContent = book.pageCount;
-     card.appendChild(pageCount);
+    const authorHdr = document.createElement('div');
+    authorHdr.classList.add('author-hdr');
+    authorHdr.textContent = 'Book Author'
+    card.appendChild(authorHdr);
 
-     const close = document.createElement('div');
-     close.innerText = 'X';
-     close.classList.add('close');
-     card.appendChild(close);
+    const author = document.createElement('div'); 
+    author.classList.add('author');
+    author.textContent = book.author;
+    card.appendChild(author);
 
-     close.addEventListener('click', (e)=>{
-      console.log(e.target.parentElement)
+    const pageCountHdr = document.createElement('div');
+    pageCountHdr.classList.add('page-count-hdr');
+    pageCountHdr.textContent = 'Page Count'
+    card.appendChild(pageCountHdr);
+     
+    const pageCount = document.createElement('div');
+    pageCount.classList.add('pageCount');
+    pageCount.textContent = book.pageCount + ' pgs.';
+    card.appendChild(pageCount);
+
+    const close = document.createElement('div');
+    close.innerText = 'X';
+    close.classList.add('close');
+    card.appendChild(close);
+
+    close.addEventListener('click', (e)=>{
       e.target.parentElement.remove();
-      MYLIBRARY.splice(Number(`e.target.parentElement`))
+      MYLIBRARY.books.splice(idx,1)
+      this.renderBooks();
      })
     })
   },
 }
+
+MYLIBRARY.libraryContainer.addEventListener('click', ()=>{
+  MODAL.closeModal();
+})
+
 
 const MODAL = {
   openBookButton: document.querySelector('.open-modal').addEventListener('click', ()=>{
@@ -88,12 +86,18 @@ const MODAL = {
   addBookBtn: document.querySelector('.add-book-btn').
   addEventListener('click', (e)=>{
     e.preventDefault();
-    MYLIBRARY.addBook(MODAL.bookTitleInput.value, MODAL.bookAuthorInput.value, MODAL.pageCountInput.value);
-    MODAL.clear();
-    MODAL.addBookForm.classList.toggle('hidden');
-    MYLIBRARY.renderBooks()
+    if (MODAL.bookTitleInput.value && MODAL.bookAuthorInput.value && MODAL.pageCountInput.value){
+      MYLIBRARY.addBook(MODAL.bookTitleInput.value, MODAL.bookAuthorInput.value, MODAL.pageCountInput.value);
+      MODAL.clear();
+      MODAL.addBookForm.classList.toggle('hidden');
+      MYLIBRARY.renderBooks()
+    } else {
+      alert('Please input your book information.')
+    }
   }),
-
+  closeModal(){
+    MODAL.addBookForm.classList.add('hidden');
+  },
   clear(){
     this.bookTitleInput.value = '';
     this.bookAuthorInput.value = '';

@@ -4,8 +4,8 @@
 }
 body {
   position: relative;
-  background-color: #44344f;
-  color: #d3fcd5;
+  background-color: #778da9;
+  color: #e0e1dd;
 
   justify-content: center;
   flex-direction: column;
@@ -14,8 +14,8 @@ body {
 }
 
 .nav {
-  background-color: #c2f970;
-  color: #44344f;
+  background-color: #0d1b2a;
+  color: #e0e1dd;
   width: 100%;
   height: 60px;
   text-align: center;
@@ -25,18 +25,19 @@ body {
   display: flex;
   justify-content: center;
   margin-top: 20px;
-  height: 300px;
+  height: 100%;
 }
 
 .card {
+  background-color: #1b263b;
   position: relative;
   display: flex;
   justify-content: space-around;
   align-items: center;
   flex-direction: column;
   width: 200px;
-  height: 300px;
-  border: 2px solid #c2f970;
+  height: 190px;
+  border: 2px solid #415a77;
   border-radius: 20px;
   position: relative;
   margin-right: 20px;
@@ -59,13 +60,22 @@ body {
   transform: translateY(4px);
 }
 
-.title,
+/* .title,
 .author,
 .page-count,
 .has-read-btn {
   margin-bottom: 10px;
   padding: 10px;
+} */
+
+.title-hdr, .author-hdr, .page-count-hdr{
+  height: 20px;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #778da9;
 }
+
+
 
 .has-read-btn {
   bottom: 0;
@@ -88,10 +98,9 @@ body {
   position: absolute;
   top: 20%;
   right: 40%;
-  background-color: #c2f970;
+  background-color: #1b263b;
   border-radius: 25px;
-  color: #44344f;
-  height: 300px;
+  height: 220px;
   width: 300px;
   z-index: 1;
 }
